@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 
-const booktableSchema = new mongoose.Schema({
-   guestdetails:{
+const bookhotelSchema = new mongoose.Schema({
+   personaldetails:{
         fisrtname:{
             type:String,
             require:true
@@ -20,17 +20,21 @@ const booktableSchema = new mongoose.Schema({
         },
     },
    bookingdetails:{
-        date:{
+        howmanyrooms:{
+            type: Number,
+            require:true
+        },
+        checkindateandtime:{
             type: String,
             require:true
         },
-        tablenumber:{
-            type:Number,
+        checkoutdateandtime:{
+            type: String,
             require:true
-        }
+        },
    } 
 },
     { timestamps: true }
 )
 
-module.exports = mongoose.model("booktable",booktableSchema)
+module.exports = mongoose.model("bookinghotel",bookhotelSchema)

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 
-const booktableSchema = new mongoose.Schema({
-   guestdetails:{
+const bookhallSchema = new mongoose.Schema({
+   personaldetails:{
         fisrtname:{
             type:String,
             require:true
@@ -20,17 +20,25 @@ const booktableSchema = new mongoose.Schema({
         },
     },
    bookingdetails:{
-        date:{
+        occasiondate:{
             type: String,
             require:true
         },
-        tablenumber:{
-            type:Number,
+        numberofhalls:{
+            type: Number,
             require:true
-        }
+        },
+        occasion:{
+            type: String,
+            require:true
+        },
+        hallcapasity:{
+            type: Number,
+            require:true
+        },
    } 
 },
     { timestamps: true }
 )
 
-module.exports = mongoose.model("booktable",booktableSchema)
+module.exports = mongoose.model("bookhall",bookhallSchema)

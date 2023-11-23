@@ -12,6 +12,8 @@ mongoose.connect(process.env.DB_URL)
     })
 
 const Booktable = require("./Routes/booktable-router")
+const Bookhotel = require("./Routes/bookinghotel-router")
+const Bookhall = require("./Routes/bookhall-router")
 
 app.use(express.json())
 
@@ -22,7 +24,8 @@ let corsOptions = {
 };
 
  app.use("/",cors(corsOptions),  Booktable)
-
+ app.use("/",cors(corsOptions),  Bookhotel)
+ app.use("/",cors(corsOptions),  Bookhall)
 
 //port
 app.listen(9000, (req, res) => {
